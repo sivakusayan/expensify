@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import ReactDOM from 'react-dom'; 
+import { Provider } from 'react-redux';
+
 import AppRouter from './routers/AppRouter';
 
 import configureStore from './store/configureStore';
@@ -21,4 +22,10 @@ store.dispatch(addExpense({ description: "Trans FFS", amount: 4000000}));
 
 store.dispatch(setTextFilter('Elec'));
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+const jsx= (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
