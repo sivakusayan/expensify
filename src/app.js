@@ -17,10 +17,9 @@ store.subscribe(() => {
   console.log(getVisibleExpenses(state.expenses, state.filters));
 })
 
-store.dispatch(addExpense({ description: "Trans Electrolysis", amount: 8000}));
+store.dispatch(addExpense({ description: "Trans Electrolysis", amount: 8000, createdAt: 1000}));
 store.dispatch(addExpense({ description: "Trans FFS", amount: 4000000}));
-
-store.dispatch(setTextFilter('Elec'));
+store.dispatch(addExpense({ description: "Trans SRS", amount: 2500000, createdAt: 2000}));
 
 const jsx= (
   <Provider store={store}>
